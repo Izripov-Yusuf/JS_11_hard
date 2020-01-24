@@ -1,13 +1,8 @@
-let money = 30000, income = '15000', addExpenses = 'Аренда, Еда, Интернет, Коммуналка, Транспорт',
-deposit = false, mission = 100000, period = 3;
+let num = 266219;
+let res = 1;
+num.toString().split('').forEach(function (el) {
+  res *= el;
+});
+console.log(res);
 
-console.log(typeof money, typeof income, typeof deposit);
-
-console.log(addExpenses.length);
-
-console.log("Период равен " + period + " месяца. " + "Цель заработать " + mission + " рублей");
-
-console.log(addExpenses.toLowerCase().split(','));
-
-let budgetDay = money / 30;
-console.log(budgetDay);
+console.log((res ** 3).toString().substring(0, 2));
