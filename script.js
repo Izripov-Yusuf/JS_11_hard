@@ -21,5 +21,5 @@ for (let i = 2; i <= x; i++) {
     }
   }
 
-  console.log(i);
+  console.log(i + ' Делители этого числа 1 и ' + i);
 }
