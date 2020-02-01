@@ -1,25 +1,19 @@
 'use strict';
 
-// Первое задание
-let arr = ['2678', '7777', '555', '444', '333', '222', '40456'];
+let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+  today = new Date().getDay() - 1;
 
-arr.forEach((e) => {
-  if (e[0] === '2' || e[0] === '4') {
-    console.log(`<br>${e}`);
-  }
-});
-
-// Второе задание
-let x = 100;
-
-nextNumber:
-for (let i = 2; i <= x; i++) {
-
-  for (let j = 2; j < i; j++) {
-    if (i % j === 0) {
-      continue nextNumber;
+for (let i = 0; i < week.length; i++) {
+  if (i === today) {
+    if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
+      document.write(`<p><b><i>${week[i]}</i></b></p>`);
+    } else {
+      document.write(`<p><b>${week[i]}</b></p>`);
     }
+  } else if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
+    document.write(`<p><i>${week[i]}</i></p>`);
+  } else {
+    document.write(`<p>${week[i]}</p>`);
   }
-
-  console.log(i + ' Делители этого числа 1 и ' + i);
 }
+console.log(week);
