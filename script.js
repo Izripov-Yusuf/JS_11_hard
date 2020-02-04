@@ -1,19 +1,25 @@
 'use strict';
 
-let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-  today = new Date().getDay() - 1;
-
-for (let i = 0; i < week.length; i++) {
-  if (i === today) {
-    if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
-      document.write(`<p><b><i>${week[i]}</i></b></p>`);
-    } else {
-      document.write(`<p><b>${week[i]}</b></p>`);
+let date = new Date(),
+  month = ['января', 'февраля', 'марта', 'апрея', 'мая', 'июня', 'июля', 'августа', 'сентября',
+  'октября', 'ноября', 'декабря'],
+  weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+  day = date.getDate(),
+  year = date.getFullYear(),
+  hours = date.getHours(),
+  minutes = date.getMinutes(),
+  seconds = date.getSeconds(),
+  fullYear = date.toLocaleDateString(),
+  fullTime = date.toLocaleTimeString();
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
     }
-  } else if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
-    document.write(`<p><i>${week[i]}</i></p>`);
-  } else {
-    document.write(`<p>${week[i]}</p>`);
+    return i;
   }
-}
-console.log(week);
+document.write('Сегодня ' + `${weekday[date.getDay()]}, ` + `${day} ` + month[date.getMonth()] + ` ${year} года, ` + `${checkTime(hours)} час ` + `${checkTime(minutes)} минут ` + `${checkTime(seconds)} секунд`);
+document.write(`<br>${fullYear} - ` + `${fullTime}`);
+
+/* setInterval(() => {
+  document.write(`<br>${checkTime(hours)}:` + `${checkTime(minutes)}:` + `${checkTime(seconds)}`);
+}, 1000); */
