@@ -25,7 +25,7 @@ function checkTime(i) {
     }
     return i;
   }
-document.write('Сегодня ' + `${weekday[date.getDay()]}, ` + `${day} ` + month[date.getMonth()] + ` ${year} года, ` + `${checkTime(hours)} ${num3str(checkTime(hours), ['часа', 'час', 'часов'])} ` + `${checkTime(minutes)} ${num3str(checkTime(minutes), ['минуты', 'минута', 'минуты'])} ` + `${checkTime(seconds)} ${num3str(checkTime(seconds), ['секунды', 'секунда', 'секунд'])}`);
+document.write('Сегодня ' + `${weekday[date.getDay()]}, ` + `${day} ` + month[date.getMonth()] + ` ${year} года, ` + `${checkTime(hours)} ${num3str(checkTime(hours), ['часа', 'час', 'часов'])} ` + `${checkTime(minutes)} ${num3str(checkTime(minutes), ['минуты', 'минута', 'минут'])} ` + `${checkTime(seconds)} ${num3str(checkTime(seconds), ['секунды', 'секунда', 'секунд'])}`);
 document.write(`<br>${fullYear} - ` + `${fullTime}`);
 
 
