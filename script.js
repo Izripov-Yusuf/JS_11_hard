@@ -80,8 +80,8 @@ let appData = {
   },
   addExpensesBlock: function () {
     let cloneExpensesItem = expensesItems[0].cloneNode(true);
-    cloneExpensesItem.childNodes[1].value = '';
-    cloneExpensesItem.childNodes[3].value = '';
+    cloneExpensesItem.children[0].value = '';
+    cloneExpensesItem.children[1].value = '';
     expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
     expensesItems = document.querySelectorAll('.expenses-items');
     inputPlaceholderNumber = document.querySelectorAll('.data [placeholder = "Сумма"]');
@@ -210,12 +210,7 @@ let appData = {
 };
 
 start.addEventListener('click', function (event) {
-  event.preventDefault();
-  if (salaryAmount.value === '') {
-    alert('Ошибка, поле "Месячный доход" должно быть заполнено!');
-  } else {
-    appData.start();
-  }
+  appData.start();
 });
 
 /* console.log(searchNewIncome()); */
