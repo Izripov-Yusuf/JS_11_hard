@@ -131,7 +131,7 @@
 		</div>
 
 
-		<div class="service-tab d-none row">
+		<div class="service-tab row">
 			<div class="col-md-6 col-sm-6">
 				<img src="images/service/service-2.png" alt="">
 			</div>
@@ -147,7 +147,7 @@
 		</div>
 
 
-		<div class="service-tab d-none row">
+		<div class="service-tab row">
 			<div class="service-outer col-md-6 col-sm-6 col-12">
 				<div class="service-inner">
 					<p>Услуга, направленная на разработку дизайна с анимацией, дизайн интерьера и экстерьера</p>
@@ -178,7 +178,14 @@
 			<li class="portfolio-item"><img src="images/portfilio/portfolio-10.jpg" alt="portfolio"></li>
 			<a href="#" class="portfolio-btn prev" id="arrow-left"></a>
 			<a href="#" class="portfolio-btn next" id="arrow-right"></a>
-			<ul class="portfolio-dots"></ul>
+			<ul class="portfolio-dots">
+				<li class="dot dot-active"></li>
+				<li class="dot"></li>
+				<li class="dot"></li>
+				<li class="dot"></li>
+				<li class="dot"></li>
+				<li class="dot"></li>
+			</ul>
 		</ul>
 	</div>
 </div>
@@ -411,41 +418,7 @@
 		</div>
 	</div>
 </div>
-<script src="plugins/validator/validator.js"></script>
-<script>
-  const valid = new Validator({
-    selector: '#form1',
-    pattern: {
-      rus: /[а-яА-Я,.!?"';: ]/
-    },
-    method: {
-      'form1-name': [
-        ['notEmpty'],
-        ['pattern', 'rus']
-      ]
-    }
-  });
 
-  valid.init();
 
-  const valid2 = new Validator({
-    selector: '#form2',
-    pattern: {
-      rus: /[а-яА-Я,.!?"';: ]/
-    },
-    method: {
-    'form2-name': [
-      ['notEmpty'],
-      ['pattern', 'rus']
-    ],
-    'form2-message': [
-      ['notEmpty'],
-      ['pattern', 'rus']
-    ]
-  }
-  });
-  valid2.init();
-</script>
-<script src="script.js"></script>
 </body>
 </html>
