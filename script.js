@@ -1,19 +1,23 @@
-'use strict';
+window.addEventListener('DOMContentLoaded', function () {
+  'use strict';
 
-let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-  today = new Date().getDay() - 1;
+  let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  let date = new Date();
 
-for (let i = 0; i < week.length; i++) {
-  if (i === today) {
-    if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
-      document.write(`<p><b><i>${week[i]}</i></b></p>`);
-    } else {
-      document.write(`<p><b>${week[i]}</b></p>`);
+  week.forEach(function (day, index) {
+    let days = document.createElement('div');
+    days.innerHTML = day;
+    document.body.appendChild(days);
+
+    if (index === 5 || index === 6) {
+      days.style.fontStyle = 'italic';
     }
-  } else if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
-    document.write(`<p><i>${week[i]}</i></p>`);
-  } else {
-    document.write(`<p>${week[i]}</p>`);
-  }
-}
-console.log(week);
+    let currentDay = date.getDay();
+    if (currentDay === 0) {
+      currentDay = 7;
+    }
+    if (index === (currentDay - 1)) {
+      days.style.fontWeight = 'bold';
+    }
+  });
+});
