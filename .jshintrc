@@ -6,14 +6,10 @@
 	"maxlen": 120,
 	"trailing": true,
 	"curly": true,
-	"strict": true,
+	"strict": false,
 	"browser": true,
 	"devel": true,
 	"jquery": true,
 	"esversion": 6,
-	"eqeqeq": true,
-	"latedef": true,
-	"noempty": true,
-  "funcscope": true,
-  "node": true
+	"node": true
 }
