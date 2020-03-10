@@ -1,50 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+'use strict';
 
-  const select = document.getElementById('cars'),
-        output = document.getElementById('output');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const color = document.getElementById('color');
+const widthPaint = document.getElementById('width');
+const widthAmount = document.querySelector('.paint-width');
 
-  const getData = (url) => {
-    return new Promise((resolve, reject) => {
-      const request = new XMLHttpRequest();
-      request.open('GET', url);
-      request.setRequestHeader('Content-type', 'application/json');
-      request.addEventListener('readystatechange', () => {
-        if (request.readyState !== 4) {
-          return;
-        }
-        if (request.status === 200) {
-          const data = JSON.parse(request.responseText);
-          const outputSuccessMessage = () => {
-            data.cars.forEach(item => {
-              if (item.brand === select.value) {
-                const {
-                  brand,
-                  model,
-                  price
-                } = item;
-                output.innerHTML = `Тачка ${brand} ${model} <br>
-                  Цена: ${price}$`;
-              }
-            });
-          };
-          resolve(outputSuccessMessage);
-        } else {
-          const outputErrorMessage = () => {
-            output.innerHTML = 'Произошла ошибка';
-          };
-          reject(outputErrorMessage());
-        }
-      });
-      request.send();
-    });
-  };
+color.addEventListener('input', () => {
+  ctx.strokeStyle = color.value;
+});
 
-  select.addEventListener('change', () => {
-    getData('./cars.json')
-      .then(outputSuccessMessage => {
-        outputSuccessMessage();
-      })
-      .catch(outputErrorMessage => outputErrorMessage);
-  });
+const changeRange = (event) => {
+  widthPaint.value = event.target.value;
+  widthAmount.textContent = widthPaint.value;
+  ctx.lineWidth = widthPaint.value;
+};
+
+widthPaint.addEventListener('input', changeRange);
+
+canvas.addEventListener('mousemove', (event) => {
+  const x = event.offsetX,
+    y = event.offsetY,
+    mx = event.movementX,
+    my = event.movementY;
+
+  if (event.buttons > 0) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - mx, y - my);
+    ctx.stroke();
+    ctx.closePath();
+  }
 });
